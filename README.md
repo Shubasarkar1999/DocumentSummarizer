@@ -37,30 +37,13 @@ Environment Variables: python-dotenv
 
 Environment Management: venv
 
-📁 Folder Structure
-TextSummarizer/
-│
-├─ app.py                # Main FastAPI application & API endpoints
-├─ .env                  # Stores environment variables (e.g., API keys, client secrets)
-├─ utils/                # Directory for utility scripts
-│   ├─ drive_utils.py    # Google Drive authentication & file operations
-│   ├─ parse_utils.py    # Text extraction from various document types
-│   └─ summarize_utils.py# AI summarization logic (integrates with AI model)
-├─ templates/
-│   └─ summaries.html    # Web interface for displaying summaries
-├─ downloads/            # Temporarily stores downloaded files from Drive
-├─ parsed_outputs/       # Stores extracted text and JSON previews
-├─ summaries/            # Stores individual document summaries as TXT files
-├─ reports/              # Stores collective CSV and PDF summary reports
-├─ token.json            # Automatically generated Google Drive token (managed by script)
-├─ requirements.txt      # Lists Python dependencies
-└─ README.md             # Project documentation
+
 
 ⚙️ Setup Instructions (from scratch)
 Follow these steps to get the application up and running on your local machine:
 
 1️⃣ Clone the Repository
-git clone <your_repo_url>
+git clone 
 cd TextSummarizer
 
 2️⃣ Create a Virtual Environment
@@ -187,4 +170,4 @@ http://127.0.0.1:5000/rendered-summaries-html
 
 Here, you will see the styled HTML table of all summaries. You can click on individual file names to see their raw text summary in a new tab, and use the dedicated buttons to download the collective CSV and PDF reports.
 
-**Please watch the demo clip for full execution**
+**Please download and extract the zip in sample outputs folder to watch the demo clip for full execution**
