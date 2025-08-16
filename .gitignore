@@ -10,12 +10,18 @@ __pycache__/
 # Virtual environment
 .venv/
 
-# Generated output directories
+# Generated output directories (these are regenerated locally, so don't push)
 downloads/
 parsed_outputs/
 summaries/
 reports/
 
-# Google API authentication files
+# Google API authentication files (sensitive, don't push)
 token.json
-client_secret.json
+
+# If you store client_secret.json in the root and want to ensure it's not pushed:
+# client_secret.json
+
+# Exclude specific large files/folders that should NOT be pushed to Git
+# This line will prevent your demo video (and any other mp4) from being pushed
+sample_outputs/*.mp4
