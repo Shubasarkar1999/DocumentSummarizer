@@ -95,20 +95,15 @@ OPENROUTER_API_KEY="sk-or-v1-YOUR_OPENROUTER_API_KEY"
 
 Replace sk-or-v1-YOUR_OPENROUTER_API_KEY with your actual OpenRouter API Key.
 
-Generate token.json for Google Drive Authentication (Mandatory Step):
+**Generate token.json for Google Drive Authentication (Mandatory Step):**
 
 The token.json file stores your user's access and refresh tokens. It's automatically created by the Google API client library the first time you authenticate. If it doesn't exist, is invalid, or needs to be refreshed, follow these steps:
 
 Ensure client_secret.json is in the project root. This file contains the credentials the authentication tool needs.
 
-Run the following command in your terminal (with your virtual environment activated):
+Run the utils/generate_token.py
 
-python -m google_auth_oauthlib.tool \
-  --client-secrets client_secret.json \
-  --scope https://www.googleapis.com/auth/drive.readonly \
-  --save
-
-What this command does: It initiates an OAuth 2.0 authorization flow.
+Python utils/generate1_token.py
 
 Browser Interaction: This will automatically open a web browser tab asking you to log in to your Google account and grant permissions to your application (specifically "See and download all your Google Drive files").
 
