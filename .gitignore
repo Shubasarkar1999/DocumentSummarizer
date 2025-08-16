@@ -18,7 +18,7 @@ reports/
 
 # Google API authentication files (sensitive, don't push)
 token.json
-
+client_secret.json
 # If you store client_secret.json in the root and want to ensure it's not pushed:
 # client_secret.json
 
