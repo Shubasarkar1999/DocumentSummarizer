@@ -114,19 +114,15 @@ Browser Interaction: This will automatically open a web browser tab asking you t
 
 Token Generation: Upon successful authorization in the browser, the tool will automatically save the token.json file in your project's root directory. This token.json allows your application to authenticate with Google Drive without requiring re-login until the token expires.
 
-Example structure after setup:
-
-TextSummarizer/
-├─ .env                  # Contains your OpenRouter API key
-├─ client_secret.json    # **required** for Google Auth flow
-├─ token.json            # Automatically generated after first authentication
-├─ ... (other project files)
-
 
 5️⃣ Run the Application
 Start the FastAPI application using Uvicorn. The API will be available at http://127.0.0.1:5000.
 
 uvicorn app:app --reload --host 127.0.0.1 --port 5000
+
+Drive URL: https://drive.google.com/drive/folders/1k4x_Agop7VrLUGqJbjYLZP-T5ms1mJRP?usp=sharing
+
+Sample Folder ID: 1k4x_Agop7VrLUGqJbjYLZP-T5ms1mJRP
 
 🌐 API Endpoints
 Once the application is running, you can interact with it via these endpoints:
@@ -137,9 +133,12 @@ Once the application is running, you can interact with it via these endpoints:
 
 /parse-folder/{folder_id} (GET): Downloads files, extracts their text, and saves the parsed content (raw text and JSON metadata) to parsed_outputs/.
 
+**Automated Flow**
 /summarize-folder/{folder_id} (GET): (Main Orchestrator) Downloads, parses, and summarizes all documents in the given folder. It saves individual summaries to summaries/ and generates collective CSV and PDF reports in reports/.
 
 /view-summaries (GET): Returns a JSON response providing the direct URL to the HTML web interface where all summaries are displayed. Use this endpoint from Swagger UI to get the link.
+
+then visit : http://127.0.0.1:5000/rendered-summaries-html
 
 /rendered-summaries-html (GET - hidden from Swagger UI): This is the actual web interface that renders the styled HTML table of summaries. You'll navigate to this URL in your browser after running /summarize-folder.
 

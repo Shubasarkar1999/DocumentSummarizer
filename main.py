@@ -13,6 +13,18 @@ from dotenv import load_dotenv
 # Load environment variables from .env file at the very start
 load_dotenv()
 
+# --- ENSURE DIRECTORIES EXIST BEFORE APP INITIALIZATION ---
+# This function creates all necessary directories for the application.
+# It's called here to guarantee they exist before StaticFiles tries to mount them.
+def _ensure_dirs():
+    os.makedirs("downloads", exist_ok=True)
+    os.makedirs("parsed_outputs", exist_ok=True)
+    os.makedirs("summaries", exist_ok=True)
+    os.makedirs("reports", exist_ok=True) # Ensure reports directory exists
+
+_ensure_dirs() # Call the function immediately after loading environment variables
+
+
 # Assuming drive_utils, parse_utils, and summarize_utils are in the same directory
 from utils.drive_utils import DriveClient
 from utils.parse_utils import extract_text
@@ -22,18 +34,10 @@ import pandas as pd
 from fpdf import FPDF
 
 app = FastAPI(title="Drive Document Summarizer")
+# Now, when StaticFiles is instantiated, these directories are guaranteed to exist.
 app.mount("/summaries", StaticFiles(directory="summaries"), name="summaries")
 app.mount("/reports", StaticFiles(directory="reports"), name="reports") # Mount reports directory for access
 templates = Jinja2Templates(directory="templates")
-
-
-def _ensure_dirs():
-    os.makedirs("downloads", exist_ok=True)
-    os.makedirs("parsed_outputs", exist_ok=True)
-    os.makedirs("summaries", exist_ok=True)
-    os.makedirs("reports", exist_ok=True) # Ensure reports directory exists
-
-_ensure_dirs()
 
 
 @app.get("/test-list/{folder_id}")
@@ -60,7 +64,7 @@ async def download_folder(folder_id: str):
         return JSONResponse(content={"message": "No files found in this folder."}, status_code=404)
 
     downloaded_files = []
-    os.makedirs("downloads", exist_ok=True) # Ensure directory exists
+    # os.makedirs("downloads", exist_ok=True) # Not needed here, as _ensure_dirs() handles it globally
 
     for f in files:
         file_id = f["id"]
@@ -140,7 +144,7 @@ async def summarize_folder(folder_id: str):
     if not files:
         return JSONResponse(content={"message": "No files found in this folder."}, status_code=404)
 
-    _ensure_dirs() # Ensure all necessary directories exist
+    # _ensure_dirs() # Not needed here, as it's called once at module load
 
     summaries = []
 
