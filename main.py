@@ -272,5 +272,5 @@ async def rendered_summaries_html(request: Request):
     return templates.TemplateResponse("summaries.html", {
         "request": request,
         "summaries": summaries_list,
-        "report_links": report_links # Pass report links to the template
+        "report_links": report_links 
     })
