@@ -1,0 +1,21 @@
+# .gitignore
+
+# Environment variables
+.env
+
+# Python specific
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+
+# Generated output directories
+downloads/
+parsed_outputs/
+summaries/
+reports/
+
+# Google API authentication files
+token.json
+client_secret.json

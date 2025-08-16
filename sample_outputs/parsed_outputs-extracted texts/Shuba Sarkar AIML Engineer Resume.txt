@@ -1,0 +1,29 @@
+SHUBA SARKAR
+AI/ML ENGINEER
+www.linkedin.com/in/shuba-sarkar-401686164 || shubasarkar1999@gmail.com || +91 6289836276
+AI/ML Engineer with 1+ years of experience applying machine learning and artificial intelligence to optimize business operations and automate workflows. Skilled in developing end-to-end ML solutions—from data processing and model development to deployment and monitoring. Currently contributing to AI-driven initiatives in the IT division of a leading bank. Committed to continuous learning, innovation, and delivering measurable impact through intelligent systems.
+Bandhan Bank Limited (SDE)	May 2024 - Present
+SENSEI – AI-POWERED RAG CHATBOT FOR INTERNAL KNOWLEDGE RETRIEVAL
+ Built a Generative AI (GenAI) chatbot using Mistral 7B for language generation, MiniLM (BERT-based) for embeddings, FAISS for vector retrieval, and LangChain for orchestration within a Retrieval- Augmented Generation (RAG) framework.
+ Developed a document ingestion pipeline to preprocess and embed over 10,000+ internal SOPs, FC CBS screen guides, and process manuals for scalable semantic search.
+ Enabled contextual, AI-powered access to unstructured enterprise knowledge—boosting IT and ops support resolution speed by 50% and reducing manual query handling.
+UIVALIDATOR – AI-POWERED UI DESIGN QUALITY SCORING & AUDIT TOOL
+ Built a Chrome extension for real-time quality scoring of 200+ UI components (e.g., text fields, buttons) on hover using a Random Forest classifier, providing instant feedback (Poor, Okay, Good) based on design compliance.
+ Developed a companion web portal for URL-based automated UI audits using Node.js, Puppeteer, and a Python FastAPI backend to extract components, run ML predictions, and generate detailed quality reports—improving design review efficiency by 40% across internal tools.
+KPMG AU (Data Analyst Virtual Intern)	MAR 2023 - MAY 2023
+Cleaned and prepared operational data using Python (Pandas, NumPy) for accurate analysis. Built Power BI dashboards to present key metrics for ops and IT decision-making.
+MBA & PGP Business Analytics and Data Science Bengal Institute of Business Studies, 2024
+BTech Computer Science Calcutta Institute of Engineering and Management, 2022 Higher Secondary Examination Kendriya Vidyalaya No2 AFS STN, Srinagar, 2017 Secondary Examination Kendriya Vidyalaya No2 AFS STN, Srinagar, 2015
+CGPA 7.8
+CGPA 9.0
+75%
+CGPA 9.6
+Languages & Frameworks: Python, TensorFlow,
+PyTorch, LangChain, scikit-learn, Java, Go, Node.js
+Tools: Jupyter, GitLab, VS Code, Docker, Kibana
+Databases: PostgreSQL, Redis, Elasticsearch,
+MongoDB
+AI/ML & NLP: Generative AI, Large Language Models (LLMs), BERT/GPT, RAG bots, Deep Learning, Time Series, Supervised & Unsupervised Learning
+Machine Learning- EICT & IIT, Kanpur Power BI- EICT & IIT, Kanpur
+Soft Skills- NPTEL & IIT, ROORKEE
+Business Analytics and Data Science- IBM Skill Network SQL and Relational Databases- IBM Skill Network

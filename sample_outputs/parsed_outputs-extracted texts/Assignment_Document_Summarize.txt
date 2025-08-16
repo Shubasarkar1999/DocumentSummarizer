@@ -1,0 +1,31 @@
+Assignment: Document Summarizer via Google Drive Integration
+Objective:
+Build a simple application that connects to a Google Drive folder, accesses various documents (PDFs,
+DOCXs, TXTs, etc.), and uses an AI model to summarize the content of each document.
+Requirements:
+1. Google Drive Integration:
+o Authenticate with Google using OAuth2.
+o Access a specific folder in Google Drive (you can mock or hardcode folder ID for the
+test).
+o List and download documents (support at least .pdf, .docx, and .txt).
+2. Document Parsing:
+o Extract text from each document.
+ Use libraries like PyMuPDF, python-docx, or pdfplumber for this step.
+3. Summarization:
+o Use OpenAI GPT (or another summarization model) to summarize each document.
+o Output should include:
+ File name
+ Short summary (5-10 sentences)
+4. Output Interface:
+o Display results on a simple web interface (Flask or FastAPI).
+o Alternatively, console output is fine for this test.
+5. Download:
+o Show summaries in a downloadable CSV or PDF report.
+o Display summaries in a styled HTML table with file links.
+Deliverables:
+ GitHub repo link (include a README.md with setup steps)
+ Code should include:
+o Google Drive integration
+o Document parsing logic
+o AI summarization
+o Output rendering (web/console)

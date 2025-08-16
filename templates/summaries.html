@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Summaries</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-color: #e0f2f7; /* Light blue background */
+            color: #333; 
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        h1 { 
+            color: #2c3e50; 
+            text-align: center; 
+            margin-bottom: 30px; 
+            font-size: 2.5em;
+            font-weight: 600;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 15px;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: separate; /* Use separate to allow border-radius on cells */
+            border-spacing: 0;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden; /* Ensures internal elements respect border-radius */
+        }
+        th, td { 
+            padding: 18px; 
+            text-align: left; 
+            border-bottom: 1px solid #ebf1f5; /* Lighter border for a cleaner look */
+        }
+        th { 
+            background-color: #4CAF50; /* Green header */
+            color: white; 
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.95em;
+        }
+        /* Style for first and last header cells for rounded corners */
+        th:first-child { border-top-left-radius: 10px; }
+        th:last-child { border-top-right-radius: 10px; }
+
+        tr:nth-child(even) { 
+            background-color: #f6fafd; /* Very light blue for even rows */
+        }
+        tr:hover { 
+            background-color: #eaf6fc; /* Slightly darker on hover */
+            cursor: pointer;
+        }
+        tr:last-child td {
+            border-bottom: none; /* Remove bottom border for last row */
+        }
+
+        a { 
+            color: #007bff; /* Standard link blue */
+            text-decoration: none; 
+            font-weight: 500;
+            transition: color 0.2s ease-in-out;
+        }
+        a:hover { 
+            text-decoration: underline; 
+            color: #0056b3; 
+        }
+        .summary-content { 
+            max-height: 180px; /* Increased height for more content */
+            overflow-y: auto; 
+            border: 1px solid #e0e6eb; /* Light grey border */
+            padding: 12px; 
+            border-radius: 8px; 
+            background-color: #fdfefe; /* Off-white for content box */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inner shadow */
+        }
+        .no-summaries {
+            text-align: center; 
+            font-style: italic; 
+            color: #777; 
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .report-buttons {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .report-buttons a {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 0 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+        }
+        .report-buttons a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        .report-buttons a:active {
+            transform: translateY(0);
+        }
+        .report-buttons a.pdf-button {
+            background-color: #dc3545; /* Red for PDF */
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
+        }
+        .report-buttons a.pdf-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generated Document Summaries 📄</h1>
+
+        {% if summaries %}
+        <table>
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for summary_item in summaries %}
+                <tr>
+                    <td>
+                        <a href="{{ summary_item.summary_file_url }}" target="_blank" title="Click to view raw summary text">
+                            {{ summary_item.file_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <div class="summary-content">
+                            {{ summary_item.summary }}
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="report-buttons">
+            <h2>Download Reports</h2>
+            {% if report_links.csv %}
+                <a href="{{ report_links.csv }}" target="_blank">Download CSV Report</a>
+            {% else %}
+                <p>CSV report not available. Please run /summarize-folder first.</p>
+            {% endif %}
+
+            {% if report_links.pdf %}
+                <a href="{{ report_links.pdf }}" target="_blank" class="pdf-button">Download PDF Report</a>
+            {% else %}
+                <p>PDF report not available. Please run /summarize-folder first.</p>
+            {% endif %}
+        </div>
+
+        {% else %}
+        <div class="no-summaries">
+            <p>😕 No summaries found. Please ensure you have run the `/summarize-folder` endpoint first to generate summaries.</p>
+            <p>Then, navigate to the URL provided by the `/view-summaries` endpoint.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
